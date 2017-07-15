@@ -56,11 +56,12 @@ if(!$conn)
         <li class="item"><a href="">Logout</a></li>
       </ul>
     </div>-->
+	<div style="text-align:left; border:1px solid #333333; width:300px; margin:0 auto; padding:10px;"">
     <form name="abc" action="studentreg.php">
       <div style="text-align:center"><input type="submit" name="Add student" value="Add student"/>  OR </div>
     </form><br>
 	
-	<div style="text-align:left; border:1px solid #333333; width:300px; margin:0 auto; padding:10px;"">
+	
 
 <form name="import" method="post" enctype="multipart/form-data">
 <input type="file" name="file" /><br /><br>
