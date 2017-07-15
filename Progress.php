@@ -1,23 +1,12 @@
 <?php
-$conn = new mysqli_connect("localhost","root","","learningcurve");
-$sql_mcv1 = "SELECT * from mci_values1";
-$sql_mcv2 = "SELECT * from mci_values2";
-$sql_cv1 = "SELECT * from ChildVals1";
-$sql_cv2 = "SELECT * from ChildVals2";
-$res_mcv1 = $conn->query($sql_mcv1);
-$res_mcv2 = $conn->query($sql_mcv2);
-$res_cv1 = $conn->query($sql_cv1);
-$res_cv2 = $conn->query($sql_cv2);
-if($res_cv1->num_rows>0 && $res_cv2->num_rows>0 && $res_mcv1->num_rows>0 && $res_mcv2->num_rows>0)
+$conn = new mysqli("localhost","root","","learningcurve");
+$sql = "SELECT v1.id AS id,(v2.mci1-v1.mci1)/v1.mci1 AS mci1,(v2.mci2-v1.mci2)/v1.mci2 AS mci2,(v2.mci3-v1.mci3)/v1.mci3 as mci3,(v2.mci4-v1.mci4)/v1.mci4 AS mci4,(v2.mci5-v1.mci5)/v1.mci5 AS mci5,(c2.skill1-c1.skill1)/c1.skill1 AS cv1,(c2.skill2-c1.skill2)/c1.skill2 AS cv2,(c2.skill3-c1.skill3)/c1.skill3 AS cv3,(c2.skill4-c1.skill4)/c1.skill4 AS cv4,(c2.skill5-c1.skill5)/c1.skill5 AS cv5 FROM mci_values1 v1,mci_values2 v2,childvals1 c1,childvals2 c2 where v1.id=v2.id and c1.id=c2.id and c1.id=v1.id";
+$res = $conn->query($sql);
+
+if($res->num_rows>0)
 {
-    while($val_cv1=$res_cv1->fetch_assoc() || $val_cv2=$res_cv2->fetch_assoc() || $val_mcv1=$res_mcv1->fetch_assoc() || $val_mcv2=$res_mcv2->fetch_assoc())
-    {
-        $sql = "INSERT INTO Progress values('$val_cv1['id']','(".(($val_cv2['skill1']-$val_cv1['skill1'])/$val_cv1['skill1'])."',
-                        '(".(($val_cv2['skill2']-$val_cv1['skill2'])/$val_cv1['skill2'])."','(".(($val_cv2['skill3']-$val_cv1['skill3'])/$val_cv1['skill3'])."',
-                        '".(($val_cv2['skill4']-$val_cv1['skill4'])/$val_cv1['skill4'])."','".(($val_cv2['skill5']-$val_cv1['skill5'])/$val_cv1['skill5'])."',
-                        '".(($val_mcv2['mci1']-$val_mcv1['mci1'])/$val_mcv1['mci1'])."',
-                        '".(($val_mcv2['mci2']-$val_mcv1['mci2'])/$val_mcv1['mci2'])."','".(($val_mcv2['mci3']-$val_mcv1['mci3'])/$val_mcv1['mci3'])."',
-                        '".(($val_mcv2['mci4']-$val_mcv1['mci'])/$val_mcv1['mci4'])."','".(($val_mcv2['mci5']-$val_mcv1['mci5'])/$val_mcv1['mci5'])."')";
-        $res = mysqli_query($conn,$sql);
+    while($val=$res->fetch_assoc()){
+        $sql_insert = "INSERT INTO progress values('$val[id]','$val[mci1]','$val[mci2]','$val[mci3]','$val[mci4]','$val[mci5]','$val[cv1]','$val[cv2]','$val[cv3]','$val[cv4]',$val[cv5])";
+        $conn->query($sql_insert);
     }
 }
