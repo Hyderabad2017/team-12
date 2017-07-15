@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>FINAL LOGIN PAGE</title>
 <style>
 form {
     border: 3px solid #f1f1f1;
@@ -35,12 +36,12 @@ button:hover {
 }
 
 .imgcontainer {
-    align: center;
+    text-align: center;
     margin: 24px 0 12px 0;
 }
 
 .container {
-    padding: 10px;
+    padding: 16px;
 }
 
 span.psw {
@@ -61,8 +62,8 @@ span.psw {
 </style>
 <body>
 
-<img src="http://learning-curve-foundation.org/wp-content/uploads/2016/01/Learinng-curve-web.png" align=center width = "300" height = "200">
-<h2 align=center>Login Form</h2>
+<img src="http://learning-curve-foundation.org/wp-content/uploads/2016/01/Learinng-curve-web.png" width = "300" height = "200">
+<h2>Login Form</h2>
 
 <form action="staffpage.php" method="POST">
   
@@ -73,10 +74,10 @@ span.psw {
 
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
-	<input type="radio" name="login" value="admin">ADMIN
-	<input type="radio" name="login" value="teacher">TEACHER
+    <input type="radio" name="login" value="admin">ADMIN
+    <input type="radio" name="login" value="teacher">TEACHER
       
-    <button type="submit" name="login">Login</button>
+    <input type="submit" name="submit" value="submit">
     <!--<input type="checkbox" checked="checked"> Remember me-->
   </div>
 </form>

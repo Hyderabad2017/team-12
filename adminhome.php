@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>FINAL ADMIN HOME</title>
 <style>
 form {
     border: 3px solid #f1f1f1;
@@ -65,18 +66,18 @@ span.psw {
 <br><br><br>
 
 	<form name="view" value="" action="" method="post">
-		<input name="button1" type="button" value="child assessment">
-		<input name="button2" type="button" value="classroom assessment">
+		<input name="button1" type="submit" value="child assessment">
+		<input name="button2" type="submit" value="classroom assessment">
 	</form>
 	<br><br>
 	
-	<a href="ClassRoomAssesment.html">CLick here to enter the assessment</a>
+	<a href="ClassRoomAssesment.html">Click here to enter the assessment</a>
 	</center>
 	<?php
 	if(isset($_REQUEST["button1"]))
-		header("location : childassess.html");
+		header("location:childassess.php");
 	if(isset($_REQUEST["button2"]))
-		header("location: google.co.in");
+		header("location:ClassRoomAssesment.html");
 	?>
 	
 	<a href="logintest.html">Logout</a>

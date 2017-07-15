@@ -1,6 +1,6 @@
 <?php
 
-$conn  = mysqli_connect('localhost','root','','detail');
+$conn  = mysqli_connect('localhost','root','','bookings');
 
 if(!$conn)
 {
@@ -13,7 +13,7 @@ if(!$conn)
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Teacher Homepage</title>
+    <title>FINAL Teacher Homepage</title>
 
     <style type="text/css">
       #button {  /* Box in the button */
@@ -60,7 +60,7 @@ if(!$conn)
     <form name="abc" action="studentreg.php">
       <div style="text-align:center"><input type="submit" name="Add student" value="Add student"/>  OR </div>
     </form><br>
-<form name="import" method="get" enctype="multipart/form-data">
+<form name="import" method="POST" enctype="multipart/form-data">
 <input type="file" name="file" /><br /><br>
 <input type="submit" name="submit" value="Submit" />
 </form>
@@ -78,14 +78,14 @@ $id = $filesop[0];
 $name = $filesop[1];
 $dept = $filesop[2];
 $sal = $filesop[3];
-$sql = "INSERT INTO abcd (id,name,dept,sal) VALUES ('$id','$name','$dept','$sal')";
+$sql = "INSERT INTO mytask (id,name,dept,sal) VALUES ('$id','$name','$dept','$sal')";
 $res = mysqli_query($conn,$sql);
 $c = $c + 1;
 }
 
 if($sql){
 echo "You database has imported successfully. You have inserted ". $c ." records";
-$query="select * from abcd";
+$query="SELECT * from mytask";
 $res=mysqli_query($conn,$query)or die("query failed");
 echo "<table border=1 align=center>";
 echo "<tr>";
@@ -94,20 +94,16 @@ echo "</tr>";
 while($row=mysqli_fetch_array($res))
 { 
 	echo "<tr><td>",$row['id'],"</td>";
-<<<<<<< HEAD
-	echo "<td>",$row['name'],"</a></td>";
-=======
+	//echo "<td>",$row['name'],"</a></td>";
 	//echo "<td><a href="childassess.php?res=$id1">".$row['name']."</a></td>";
 		
-	echo "<td>".$row['name']."</a></td>";
+	echo "<td>".$row['name']."</td>";
 	//echo " <a href="childassess.php?res=$id1".".$row['name']."</a>";
 	//<a href="?php echo "http://www.someotherwebsite.com"; "
-	
 
->>>>>>> 4298ec4b7c912adc2f44952c8333d0da6c61c66c
 	echo "<td>",$row['dept'],"</td>";
 	echo "<td>",$row['sal'],"</td></tr>";
-	echo "<td><input type="submit" name="$id1" value="Click to enter details"></td>";
+	//echo "<td><input type="submit" name="$id1" value="Click to enter details"></td>";
 }
 }
 else{
