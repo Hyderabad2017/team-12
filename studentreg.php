@@ -43,10 +43,10 @@ $familyincome=$_REQUEST["familyincome"];
 $conn=mysql_connect("localhost","root") or die("could not connect".mysql_error());
 $a=mysql_select_db("informationdb",$conn) or die("could not select database".mysql_error());
 //$q1="create table if not exists student1(id varchar(20),name varchar(10),class varchar(5))";
-$q1="insert into tablename values('".$id."','".$name."','".$gender."','".$age."','".$status."','"$familytype."','"$siblings."','".$birthorder."','".$educationlevel."','".$familyincome."')";
+$q1="insert into tablename values('".$id."','".$name."','".$gender."','".$age."','".$status."','".$familytype."','".$siblings."','".$birthorder."','".$educationlevel."','".$familyincome."')";
 mysql_query($q1);
 }
-<?>
+?>
 </body>
 </html>
 
