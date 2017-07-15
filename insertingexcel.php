@@ -1,6 +1,6 @@
 <?php
 
-$conn  = mysqli_connect('localhost','root','','bookings');
+$conn  = mysqli_connect('localhost','root','','detail');
 
 if(!$conn)
 {
@@ -71,7 +71,7 @@ $name = $filesop[1];
 $dept = $filesop[2];
 $sal = $filesop[3];
 
-$sql = "INSERT INTO mytask (id,name,dept,sal) VALUES ('$id','$name','$dept','$sal')";
+$sql = "INSERT INTO abcd (id,name,dept,sal) VALUES ('$id','$name','$dept','$sal')";
 $res = mysqli_query($conn,$sql);
 $c = $c + 1;
 }
