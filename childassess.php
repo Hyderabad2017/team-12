@@ -113,7 +113,9 @@ function validateForm()
             <b>Comments:</b><input type="text" placeholder="Enter your comments"><br>
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" class="buttn">Back</button>
-                <input type="submit" name="submit" value="submit" class="buttn">
+                <input type="submit" name="submit" value="submit" class="buttn"><br>
+				<label for='uploaded_file'><b>Select A File To Upload:</b></label>
+				<input type="file" name="uploadedfile">
             </div>
         </form>
 		<?php
