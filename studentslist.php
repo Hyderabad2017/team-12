@@ -48,28 +48,18 @@
       <input type="submit" name="Add student" value="Add student"/>
     </form>-->
     <?php
-    $conn=mysql_connect("localhost","root","");
-    $a=mysql_select_db("studentreg");
-    $q="SELECT name from studentreg";
+    $conn=new mysqli('localhost','root','','bookings');
     $row=array();
-    $result=mysql_query($q);
-   // echo($result);
-   /* if(mysql_num_rows($result)>0)
+    $q="SELECT name from studentreg";
+    $result=$conn->query($q);
+    //echo $result;
+   if($result->num_rows>0)
     {
-    while($val=mysql_fetch_array($result))
+    while($val=$result->fetch_assoc())
 {
-echo "<a href=childassess.php>".$result;
+echo "<a href=childassess.php>".$val['name']."</a>";
 }
-}*/
-//if($result)
-//{
-  echo ($result);
-  while($row=mysql_fetch_array($result))
-  {
-    echo "<a href='childassess.php'>".$row["name"];
-
-    }
-  //}
+}
 
 ?> 
   </body>
