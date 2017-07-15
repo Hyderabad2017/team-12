@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
 
-function validateForm()
+/*function validateForm()
 {
 	var a=document.entrydetails.id.value;
 	var b=document.entrydetails.name.value;
@@ -38,7 +38,7 @@ function validateForm()
 		alert("Enter income");
 
 	
-}
+}*/
 </script>
 </head>
 <body>
@@ -71,10 +71,14 @@ $birthorder=$_REQUEST["birthorder"];
 $educationlevel=$_REQUEST["educationlevel"];
 $familyincome=$_REQUEST["income"];
 $section=$_REQUEST["section"];
+echo($id);
 $conn=mysql_connect("localhost","root") or die("could not connect".mysql_error());
+
 $a=mysql_select_db("cfg",$conn) or die("could not select database".mysql_error());
+echo("after selection");
 $q2="create table if not exists studentreg(id varchar(20) primary key,name varchar(30),gender varchar(1),age varchar(2),status varchar(20),familytype varchar(20),siblings varchar(3),birthorder varchar(3),educationlevel varchar(20),familyincome varchar(20),section varchar(2))";
-mysql_query($q2);
+mysql_query($q2)or die(mysql_error());
+echo($id);
 $q1="insert into studentreg values('".$id."','".$name."','".$gender."','".$age."','".$status."','".$familytype."','".$siblings."','".$birthorder."','".$educationlevel."','".$familyincome."','".$section."')";
 
 mysql_query($q1);
