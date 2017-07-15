@@ -94,9 +94,20 @@ echo "</tr>";
 while($row=mysqli_fetch_array($res))
 { 
 	echo "<tr><td>",$row['id'],"</td>";
+<<<<<<< HEAD
 	echo "<td>",$row['name'],"</a></td>";
+=======
+	//echo "<td><a href="childassess.php?res=$id1">".$row['name']."</a></td>";
+		
+	echo "<td>".$row['name']."</a></td>";
+	//echo " <a href="childassess.php?res=$id1".".$row['name']."</a>";
+	//<a href="?php echo "http://www.someotherwebsite.com"; "
+	
+
+>>>>>>> 4298ec4b7c912adc2f44952c8333d0da6c61c66c
 	echo "<td>",$row['dept'],"</td>";
 	echo "<td>",$row['sal'],"</td></tr>";
+	echo "<td><input type="submit" name="$id1" value="Click to enter details"></td>";
 }
 }
 else{
