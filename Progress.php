@@ -12,12 +12,12 @@ if($res_cv1->num_rows>0 && $res_cv2->num_rows>0 && $res_mcv1->num_rows>0 && $res
 {
     while($val_cv1=$res_cv1->fetch_assoc() || $val_cv2=$res_cv2->fetch_assoc() || $val_mcv1=$res_mcv1->fetch_assoc() || $val_mcv2=$res_mcv2->fetch_assoc())
     {
-        $sql = "INSERT INTO Progress values('$val_cv1['id']','($val_cv2['skill1']-$val_cv1['skill1'])/$val_cv1['skill1']',
-                        '($val_cv2['skill2']-$val_cv1['skill2'])/$val_cv1['skill2']','($val_cv2['skill3']-$val_cv1['skill3'])/$val_cv1['skill3']',
-                        '($val_cv2['skill4']-$val_cv1['skill4'])/$val_cv1['skill4']','($val_cv2['skill5']-$val_cv1['skill5'])/$val_cv1['skill5']',
-                        '($val_mcv2['mci1']-$val_mcv1['mci1'])/$val_mcv1['mci1']',
-                        '($val_mcv2['mci2']-$val_mcv1['mci2'])/$val_mcv1['mci2']','($val_mcv2['mci3']-$val_mcv1['mci3'])/$val_mcv1['mci3']',
-                        '($val_mcv2['mci4']-$val_mcv1['mci'])/$val_mcv1['mci4']','($val_mcv2['mci5']-$val_mcv1['mci5'])/$val_mcv1['mci5']')";
+        $sql = "INSERT INTO Progress values('$val_cv1['id']','(".(($val_cv2['skill1']-$val_cv1['skill1'])/$val_cv1['skill1'])."',
+                        '(".(($val_cv2['skill2']-$val_cv1['skill2'])/$val_cv1['skill2'])."','(".(($val_cv2['skill3']-$val_cv1['skill3'])/$val_cv1['skill3'])."',
+                        '".(($val_cv2['skill4']-$val_cv1['skill4'])/$val_cv1['skill4'])."','".(($val_cv2['skill5']-$val_cv1['skill5'])/$val_cv1['skill5'])."',
+                        '".(($val_mcv2['mci1']-$val_mcv1['mci1'])/$val_mcv1['mci1'])."',
+                        '".(($val_mcv2['mci2']-$val_mcv1['mci2'])/$val_mcv1['mci2'])."','".(($val_mcv2['mci3']-$val_mcv1['mci3'])/$val_mcv1['mci3'])."',
+                        '".(($val_mcv2['mci4']-$val_mcv1['mci'])/$val_mcv1['mci4'])."','".(($val_mcv2['mci5']-$val_mcv1['mci5'])/$val_mcv1['mci5'])."')";
         $res = mysqli_query($conn,$sql);
     }
 }
