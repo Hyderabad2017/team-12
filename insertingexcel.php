@@ -66,10 +66,13 @@ $handle = fopen($file, "r");
 $c = 0;
 while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
 {
-$name = $filesop[0];
-$project = $filesop[1];
+$id = $filesop[0];
+$name = $filesop[1];
+$dept = $filesop[2];
+$sal = $filesop[3];
 
-$sql = "INSERT INTO mytask (name, project) VALUES ('$name','$project')";
+$sql = "INSERT INTO mytask (id,name,dept,sal) VALUES ('$id','$name','$dept','$sal')";
+$res = mysqli_query($conn,$sql);
 $c = $c + 1;
 }
 
