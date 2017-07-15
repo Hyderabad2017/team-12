@@ -1,6 +1,6 @@
 <?php
 
-$conn  = mysqli_connect('localhost','root','','detail');
+$conn  = mysqli_connect('localhost','root','','lc');
 
 if(!$conn)
 {
@@ -60,13 +60,12 @@ if(!$conn)
     <form name="abc" action="studentreg.php">
       <div style="text-align:center"><input type="submit" name="Add student" value="Add student"/>  OR </div>
     </form><br>
-	
-	
-
 <form name="import" method="post" enctype="multipart/form-data">
 <input type="file" name="file" /><br /><br>
 <input type="submit" name="submit" value="Submit" />
 </form>
+</div>
+<div style="text-align:center;">
 <?php
 if(isset($_POST["submit"]))
 {
@@ -79,7 +78,6 @@ $id = $filesop[0];
 $name = $filesop[1];
 $dept = $filesop[2];
 $sal = $filesop[3];
-
 $sql = "INSERT INTO abcd (id,name,dept,sal) VALUES ('$id','$name','$dept','$sal')";
 $res = mysqli_query($conn,$sql);
 $c = $c + 1;
@@ -87,14 +85,26 @@ $c = $c + 1;
 
 if($sql){
 echo "You database has imported successfully. You have inserted ". $c ." records";
-}else{
+$query="select * from abcd";
+$res=mysqli_query($conn,$query)or die("query failed");
+echo "<table border=1 align=center>";
+echo "<tr>";
+echo "<th>id</th><th>name</th><th>dept</th><th>sal</th>";
+echo "</tr>";
+
+while($row=mysqli_fetch_array($res))
+{
+	echo "<tr><td>",$row['id'],"</td>";
+	echo "<td>",$row['name'],"</td>";
+	echo "<td>",$row['dept'],"</td>";
+	echo "<td>",$row['sal'],"</td></tr>";
+}
+}
+else{
 echo "Sorry! There is some problem.";
 }
-
 }
 ?>
-</div>
-	
-
+</div>	
   </body>
 </html>
