@@ -73,11 +73,9 @@ span.psw {
 
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
-	<input type="radio" name="login" value="admin">ADMIN
-	<input type="radio" name="login" value="teacher">TEACHER
-      
+        
     <button type="submit" name="login">Login</button>
-    <!--<input type="checkbox" checked="checked"> Remember me-->
+    <input type="checkbox" checked="checked"> Remember me
   </div>
 </form>
 
