@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Visualization of Progress </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://d3.js.org/d3.v4.min.js" charset="utf-8">
+
+	</script>
+</head>
+<style>
+	.bar
+	{
+		fill: steelblue;
+	}
+
+	.bar:hover
+	{
+		fill:red;
+	}
+
+	.axis--x path
+	{
+		display: none;
+	}
+
+	svg
+	{
+		background-color: #f9f9f9;
+	}
+</style>
+
+<body>
+
+	<svg id="barChart" width = "950" height="500"></svg>
+	<script type="text/javascript">
+
+		var svg = d3.select("#barChart"),
+			margin = {top:30, bottom:40, right:20,left:20},
+			width = +svg.attr('width')-margin.left-margin.right,
+			height = +svg.attr('height')-margin.top-margin.bottom;
+
+		var x = d3.scaleBand().rangeRound([0,width]).padding(0.1),
+			y = d3.scaleLinear().rangeRound([height,0]);
+
+		var g = svg.append('g')
+			.attr('transform','translate(' + margin.left + ',' + margin.top + ')');
+
+		d3.csv('data.csv',function(d)
+		{
+			d.frequency=+d.frequency;
+			console.log(d,d.frequency);
+			return d;
+		}, function(error, data)
+		{
+			if(error) throw error;
+			x.domain(data.map(function(d) {return d.frequency; }))
+		});
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
+
