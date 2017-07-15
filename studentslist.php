@@ -48,17 +48,19 @@
       <input type="submit" name="Add student" value="Add student"/>
     </form>-->
     <?php
-    $conn=new mysqli('localhost','root','','bookings');
+    $conn=new mysqli('localhost','root','','lc');
     $row=array();
     $q="SELECT name from studentreg";
     $result=$conn->query($q);
     //echo $result;
+	echo "<b>To view the child assessment click on the link below:</b>"."<br>"."<br>";
+	
    if($result->num_rows>0)
     {
     while($val=$result->fetch_assoc())
-{
-echo "<a href=childassess.php>".$val['name']."</a>";
-}
+    {
+		echo "<a href=childassess.php>".$val['name']."</a>"."<br>"."<br>";
+    }
 }
 
 ?> 
