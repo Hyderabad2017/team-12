@@ -45,10 +45,37 @@ foreach ($results as $row) {
                     width: 600
                 });
             }
+            function changeGraph(x){
+                window.alert(x);
+            }
             google.load('visualization', '1', {packages:['corechart'], callback: drawChart});
         </script>
     </head>
     <body>
-        <div id="chart_div"></div>
+		<table width="100%">
+			<tr>
+				<td>
+					<?php
+						$conn=new mysqli('localhost','root','','learningcurve');
+						$row=array();
+						$q="SELECT name,StudRollNum from studentreg";
+						$result=$conn->query($q);
+						if($result->num_rows>0)
+							{
+                                $temp="cksjafkas";
+							while($val=$result->fetch_assoc())
+							{
+                                ?>
+                                <a OnClick = changeGraph("<?=$val['StudRollNum']?>")><?=$val['name']?></a>
+                                <?php
+								//echo "<a Onclick='changeGraph($val[StudRollNum])'>".$val['name']."</a>"."<br>"."<br>";
+							}
+						}
+
+					?> 
+
+				</td>
+				<td><div id="chart_div"></div></td>
+			<tr>
     </body>
 </html>
