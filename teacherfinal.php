@@ -1,6 +1,6 @@
 <?php
 
-$conn  = mysqli_connect('localhost','root','','lc');
+$conn  = mysqli_connect('localhost','root','','detail');
 
 if(!$conn)
 {
@@ -60,7 +60,7 @@ if(!$conn)
     <form name="abc" action="studentreg.php">
       <div style="text-align:center"><input type="submit" name="Add student" value="Add student"/>  OR </div>
     </form><br>
-<form name="import" method="post" enctype="multipart/form-data">
+<form name="import" method="get" enctype="multipart/form-data">
 <input type="file" name="file" /><br /><br>
 <input type="submit" name="submit" value="Submit" />
 </form>
@@ -91,11 +91,11 @@ echo "<table border=1 align=center>";
 echo "<tr>";
 echo "<th>id</th><th>name</th><th>dept</th><th>sal</th>";
 echo "</tr>";
-
 while($row=mysqli_fetch_array($res))
 {
+	$id1=$row['id']; 
 	echo "<tr><td>",$row['id'],"</td>";
-	echo "<td>",$row['name'],"</td>";
+	echo "<td><a href="childassess.php?res=$id1">",$row['name'],"</a></td>";
 	echo "<td>",$row['dept'],"</td>";
 	echo "<td>",$row['sal'],"</td></tr>";
 }
