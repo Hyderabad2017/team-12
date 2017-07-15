@@ -4,7 +4,7 @@
 include 'dbconnect.php';
 echo "entered";
 	echo "entered if";
-	$uname = $_POST['email'];
+	$uname = $_POST['mobile'];
 	$pass = $_POST['psw'];	
 	$class=$_POST['class'];
 	echo $uname ;
