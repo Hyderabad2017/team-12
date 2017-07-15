@@ -3,52 +3,55 @@
 
 <script type="text/javascript">
 
-/*function validateForm() {
-    var x = document.entrydetails.id.value;
-    if (x == "") 
-        alert("Enter id");
+function validateForm()
+{
+	var a=document.entrydetails.id.value;
+	var b=document.entrydetails.name.value;
+	var c=document.entrydetails.gender.value;
+	var d=document.entrydetails.age.value;
+	var e=document.entrydetails.status.value;
+	var f=document.entrydetails.familytype.value;
+	var g=document.entrydetails.siblings.value;
+	var h=document.entrydetails.birthorder.value;
+	var i=document.entrydetails.educationlevel.value;
+	var j=document.entrydetails.income.value;
 
-       // return false;
-            var y = document.entrydetails.name.value;
-    if (y == "") 
-        alert("Enter name");
-    
-       //return false;
-        var z = document.entrydetails.gender.value;
-    if (z == "") 
-        alert("Enter gender ");
-        var a = document.entrydetails.age.value;
-    
-    if (a == "") 
-        alert("Enter age");
-    
-    var b = document.entrydetails.status.value;
-    if (b == "") 
-        alert("Enter status");
+	if(a=="")
+		alert("Enter id");
+	if(b=="")
+		alert("Enter name");
+	if(c=="")
+		alert("Enter gender");
+	if(d=="")
+		alert("Enter age");
+	if(e=="")
+		alert("Enter status");
+	if(f=="")
+		alert("Enter familytype");
+	if(g=="")
+		alert("Enter siblings");
+	if(h=="")
+		alert("Enter birthorder");
+	if(i=="")
+		alert("Enter educationlevel");
+	if(j=="")
+		alert("Enter income");
 
-var c = document.entrydetails.familytype.value;
-    if (c == "") 
-        alert("Enter familytype");
-    
-    var d = document.entrydetails.siblings.value;
-    if (d == "") 
-        alert("Enter siblings");
-    
-    var e= document.entrydetails..value;
-    if (x == "") 
-        alert("Enter name");*/
+	
+}
 </script>
 </head>
 <body>
 	<h>Enter student credentials</h>
-	<form name="entrydetails" action="" method="post" onsubmit="validateForm()">
+	<form name="entrydetails" action="studentreg.php" method="post" onsubmit="validateForm()">
 	Enter student ID <input type="text" name="id" value=""/><br>
 	Enter student name <input type="text" name="name" value=""/><br>
-	Enter gender: <input type="radio" name="gender" value="male"/>Male<input type="radio" name="gender" value="female"/>Female<br>
+	Enter gender: <input type="radio" name="gender" value="male">Male<input type="radio" name="gender" value="female">Female<br>
 	Enter age <input type="text" name="age" value=""/><br>
 	Enter parental status <input type="text" name="status" value=""/><br>
 	Enter family type <input type="text" name="familytype" value=""/><br>
 	Enter no. of siblings <input type="text" name="siblings" value=""/><br>
+	Enter section<input type="text" name="section" value=""><br>
 	Enter order of birth <input type="text" name="birthorder" value=""/><br>
 	Enter parent education level<input type="text" name="educationlevel" value=""/><br>
 	Enter family income <input type="text" name="income" value=""/><br>
@@ -57,8 +60,6 @@ var c = document.entrydetails.familytype.value;
 <?php
 if(isset($_REQUEST["submit"]))
 {
-
-
 $id=$_REQUEST["id"];
 $name=$_REQUEST["name"];
 $gender=$_REQUEST["gender"];
@@ -69,12 +70,17 @@ $siblings=$_REQUEST["siblings"];
 $birthorder=$_REQUEST["birthorder"];
 $educationlevel=$_REQUEST["educationlevel"];
 $familyincome=$_REQUEST["income"];
-
+$section=$_REQUEST["section"];
 $conn=mysql_connect("localhost","root") or die("could not connect".mysql_error());
 $a=mysql_select_db("cfg",$conn) or die("could not select database".mysql_error());
-$q2="create table if not exists studentreg(id varchar(20),name varchar(30),gender varchar(1),age varchar(2),status varchar(20),familytype varchar(20),siblings varchar(3),birthorder varchar(3),educationlevel varchar(20),familyincome varchar(20))";
-$q1="insert into tablename values('".$id."','".$name."','".$gender."','".$age."','".$status."','".$familytype."','".$siblings."','".$birthorder."','".$educationlevel."','".$familyincome."')";
+$q2="create table if not exists studentreg(id varchar(20) primary key,name varchar(30),gender varchar(1),age varchar(2),status varchar(20),familytype varchar(20),siblings varchar(3),birthorder varchar(3),educationlevel varchar(20),familyincome varchar(20),section varchar(2))";
+mysql_query($q2);
+$q1="insert into studentreg values('".$id."','".$name."','".$gender."','".$age."','".$status."','".$familytype."','".$siblings."','".$birthorder."','".$educationlevel."','".$familyincome."','".$section."')";
+
 mysql_query($q1);
+echo($id);
+
+//echo("entries made");
 }
 ?>
 </body>
