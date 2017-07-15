@@ -48,7 +48,7 @@
       <input type="submit" name="Add student" value="Add student"/>
     </form>-->
     <?php
-    $conn=new mysqli('localhost','root','','lc');
+    $conn=new mysqli('localhost','root','','detail');
     $row=array();
     $q="SELECT name from studentreg";
     $result=$conn->query($q);
@@ -58,9 +58,10 @@
    if($result->num_rows>0)
     {
     while($val=$result->fetch_assoc())
-    {
-		echo "<a href=childassess.php>".$val['name']."</a>"."<br>"."<br>";
-    }
+{
+	echo "<a href=childassess.php>".$val['name']."</a>"."<br>"."<br>";
+}
+
 }
 
 ?> 
