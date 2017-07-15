@@ -24,7 +24,7 @@ while($index<5)
 	$index++;
 }
 
-$sql = "insert into MCI_Values values('$MCI_Values[0]','$MCI_Values[1]','$MCI_Values[2]','$MCI_Values[3]','$MCI_Values[4]')";
+$sql = "INSERT INTO MCI_Values values('$MCI_Values[0]','$MCI_Values[1]','$MCI_Values[2]','$MCI_Values[3]','$MCI_Values[4]')";
 $conn = mysqli_connect('localhost','root','','learningcurve');
 $res = mysqli_query($conn,$sql);
 
