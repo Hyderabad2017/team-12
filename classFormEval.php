@@ -3,7 +3,7 @@ $Qnum = 1;
 $MCI_Values = array(0,0,0,0,0);
 $MCI_Attributes = array('S','F','Cm','D','Ch');
 
-while(Qnum<26)
+while($Qnum<26)
 {
 	if($_POST[''.$Qnum]=='Yes')
 		$MCI_Values[$Qnum%5] = $MCI_Values[$Qnum%5] + 3;
