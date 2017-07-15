@@ -64,7 +64,7 @@ span.psw {
 <img src="http://learning-curve-foundation.org/wp-content/uploads/2016/01/Learinng-curve-web.png" width = "300" height = "200">
 <h2>Login Form</h2>
 
-<form action="signup.php">
+<form action="staffpage.php" method="POST">
   
 
   <div class="container">
@@ -74,13 +74,8 @@ span.psw {
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
         
-    <button type="submit">Login</button>
+    <button type="submit" name="login">Login</button>
     <input type="checkbox" checked="checked"> Remember me
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
 
