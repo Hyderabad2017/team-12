@@ -18,13 +18,17 @@ while($Qnum<26)
 	$Qnum++;
 }
 $index = 0;
+$prepost = 0;
+if(isset($_POST["Pre"])
+$prepost = 1;
+elseif(isset($_POST["Post"])
+$prepost = 2;
 while($index<5)
 {
 	$MCI_Values[$index] = $MCI_Values[$index]/5;
 	$index++;
 }
-
-$sql = "INSERT INTO MCI_Values values('$MCI_Values[0]','$MCI_Values[1]','$MCI_Values[2]','$MCI_Values[3]','$MCI_Values[4]')";
+$sql = "INSERT INTO mci_values".$prepost." values('$MCI_Values[0]','$MCI_Values[1]','$MCI_Values[2]','$MCI_Values[3]','$MCI_Values[4]')";
 $conn = mysqli_connect('localhost','root','','learningcurve');
 $res = mysqli_query($conn,$sql);
 
