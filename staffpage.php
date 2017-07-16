@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Final Staffpage</title>
+</head>
+<body>
+
+</body>
+</html>
 <?php
 
 include 'dbconnect.php';
@@ -5,10 +14,10 @@ $uid = $_POST['uname'];
 $pass = $_POST['psw'] ;
 echo $uid;
 echo $pass;
-if(isset($_REQUEST["submit"]))
+if(isset($_POST["submit"]))
 {
-//echo 'sadeswed';
-if($_REQUEST["login"]=="teacher")
+echo 'sadeswed';
+if($_POST["login"]=="teacher")
 {
 $sql="SELECT * FROM teacher WHERE uname='$uid' AND pwd='$pass' ";
 $res = mysqli_query($conn,$sql);
@@ -19,13 +28,13 @@ if(!$row=mysqli_fetch_assoc($res))
 else
 {
 	echo "LOGIN SUCCESSFUL";
-	header("Location: teacherhome.php");
+	header("Location: teacherfinal.php");
 }
 }
 
-if($_REQUEST["login"]=="admin")
+if($_POST["login"]=="admin")
 {
-$sql="SELECT * FROM admin WHERE uname='$uid' AND pwd='$pass' ";
+$sql="SELECT * FROM admin WHERE username='$uid' AND password='$pass' ";
 $res = mysqli_query($conn,$sql);
 if(!$row=mysqli_fetch_assoc($res))
 {
