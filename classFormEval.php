@@ -18,12 +18,17 @@ while($Qnum<26)
 	$Qnum++;
 }
 $index = 0;
+$Eval = 0;
 while($index<5)
 {
 	$MCI_Values[$index] = $MCI_Values[$index]/5;
 	$index++;
 }
-$sql = "INSERT INTO mci_values1 VALUES ('$id','$MCI_Values[0]','$MCI_Values[1]','$MCI_Values[2]','$MCI_Values[3]','$MCI_Values[4]')";
+if($_POST['Assessment']=="Eval1")
+$Eval = 1;
+elseif($_POST['Assessment']=="Eval2")
+$Eval = 2;
+$sql = "INSERT INTO mci_values".$Eval." VALUES ('$id','$MCI_Values[0]','$MCI_Values[1]','$MCI_Values[2]','$MCI_Values[3]','$MCI_Values[4]')";
 $conn = mysqli_connect('localhost','root','','bookings');
 $res = mysqli_query($conn,$sql);
 ?>
