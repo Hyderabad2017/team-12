@@ -62,8 +62,8 @@ function validateForm()
     <body>
         <form name="lifeskill" action="childassess.php" method="post"  onsubmit="validateForm()">
           <b>Enter student ID:</b> <input type="text" name="id" value=""/><br>
-          <input type="radio" name="Assessment" value="Eval1"> Evaluation 1<br>
-          <input type="radio" name="Assessment" value="Eval2"> Evaluation 2<br>
+          <input type="radio" name="Assessment" value="Eval1"> Evaluation 1
+          <input type="radio" name="Assessment" value="Eval2"> Evaluation 2<br><br>
             <b>Interacting with others:</b>
             <select name="skill1">
                 <option value="SELECTED">-Select-</option>

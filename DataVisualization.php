@@ -1,4 +1,5 @@
 <?php
+echo "<strong><center>Overall Class Performance</center></strong>";
 $username = 'root';
 $password = '';
 $databasename = 'learningcurve';
