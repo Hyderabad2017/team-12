@@ -61,7 +61,9 @@ function validateForm()
     </head>
     <body>
         <form name="lifeskill" action="childassess.php" method="post"  onsubmit="validateForm()">
-		  <b>Enter student ID:</b> <input type="text" name="id" value=""/><br>
+          <b>Enter student ID:</b> <input type="text" name="id" value=""/><br>
+          <input type="radio" name="Assessment" value="Eval1"> Evaluation 1<br>
+          <input type="radio" name="Assessment" value="Eval2"> Evaluation 2<br>
             <b>Interacting with others:</b>
             <select name="skill1">
                 <option value="SELECTED">-Select-</option>
@@ -128,14 +130,19 @@ $skill2=$_REQUEST["skill2"];
 $skill3=$_REQUEST["skill3"];
 $skill4=$_REQUEST["skill4"];
 $skill5=$_REQUEST["skill5"];
-$conn=mysqli_connect("localhost","root") or die("could not connect".mysql_error());
-$a=mysql_select_db("detail",$conn) or die("could not select database".mysql_error());
-$q2= "CREATE table if not exists childskill(id varchar(20) primary key,skill1 int(10),skill2 int(10),skill3 int(10),skill4 int(10),skill5 int(10))";
-mysql_query($q2);
-$q1="INSERT into childskill values('".$id."','".$skill1."','".$skill2."','".$skill3."','".$skill4."','".$skill5."')";
+$Eval=0;
 
-mysql_query($q1);
-echo($id);
+if($_REQUEST['Assessment']=='Eval1')
+$Eval=1;
+elseif($_REQUEST['Assessment']=='Eval2')
+$Eval=2;
+
+$conn=new mysqli('localhost','root','','learningcurve');
+
+$q1="INSERT INTO childvals".$Eval." VALUES('".$id."','".$skill1."','".$skill2."','".$skill3."','".$skill4."','".$skill5."')";
+
+$res = mysqli_query($conn,$q1);
+echo($res);
 
 //echo("entries made");
 }
