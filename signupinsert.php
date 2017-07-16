@@ -26,8 +26,9 @@ include 'dbconnect.php';
 	{
 		$sql="INSERT INTO teacher (uname,pwd,class) VALUES ('$uname', '$pass', '$class' )";
 		$res = mysqli_query($conn,$sql);
-		echo "inserted";
+		//echo "inserted";
+		header("Location: teacherfinal.php");
 	}
 
-//header("Location: staffpage.php");
+
 ?>

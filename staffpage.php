@@ -34,7 +34,7 @@ else
 
 if($_POST["login"]=="admin")
 {
-$sql="SELECT * FROM admin WHERE username='$uid' AND password='$pass' ";
+$sql="SELECT * FROM admin WHERE uname='$uid' AND pwd='$pass' ";
 $res = mysqli_query($conn,$sql);
 if(!$row=mysqli_fetch_assoc($res))
 {

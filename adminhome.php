@@ -65,10 +65,7 @@ span.psw {
 <center><img src="http://learning-curve-foundation.org/wp-content/uploads/2016/01/Learinng-curve-web.png" width = "300" height = "200">
 <br><br><br>
 
-	<form name="view" value="" action="" method="post">
-		<input name="button1" type="submit" value="child assessment">
-		<input name="button2" type="submit" value="classroom assessment">
-	</form>
+	<a href="DataVisualization.php">Click here to view the assessment</a>
 	<br><br>
 	
 	<a href="ClassRoomAssesment.html">Click here to enter the assessment</a>

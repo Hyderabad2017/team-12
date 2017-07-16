@@ -9,5 +9,6 @@ if($res->num_rows>0)
         $sql_insert = "INSERT INTO progress values('$val[id]','$val[mci1]','$val[mci2]','$val[mci3]','$val[mci4]','$val[mci5]','$val[cv1]','$val[cv2]','$val[cv3]','$val[cv4]',$val[cv5])";
         $conn->query($sql_insert);
     }
+    header("Location:DataVisualization.php");
 }
 ?>

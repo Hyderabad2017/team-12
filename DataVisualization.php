@@ -123,15 +123,15 @@ foreach ($results as $row) {
 					<?php
 						$conn=new mysqli('localhost','root','','learningcurve');
 						$row=array();
-						$q="SELECT name,StudRollNum from studentreg";
+						$q="SELECT sid,name from sdata";
 						$result=$conn->query($q);
-						if($result->num_rows>0)
+						if($result->num_rows >0)
 							{
-                                $temp="cksjafkas";
+                               // $temp="cksjafkas";
 							while($val=$result->fetch_assoc())
 							{
                                 ?>
-                                <a OnClick = changeGraph("<?=$val['StudRollNum']?>")><?=$val['name']?></a><br>
+                                <a OnClick = changeGraph("<?=$val['sid']?>")><?=$val['name']?></a><br>
                                 <?php
 								//echo "<a Onclick='changeGraph($val[StudRollNum])'>".$val['name']."</a>"."<br>"."<br>";
 							}
@@ -142,5 +142,6 @@ foreach ($results as $row) {
 				</td>
 				<td><div id="chart_div"></div></td>
 			<tr>
+            <a href="adminhome.php"> LOGOUT </a>
     </body>
 </html>
