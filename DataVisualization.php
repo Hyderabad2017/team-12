@@ -60,7 +60,7 @@ foreach ($results as $row) {
                 var chart = new google.visualization.ColumnChart(document.querySelector('#chart_div'));
                 chart.draw(data, {
                     height: 400,
-                    width: 600
+                    width: 800
                 });
             }
             function changeGraph(x){
@@ -131,7 +131,7 @@ foreach ($results as $row) {
 							while($val=$result->fetch_assoc())
 							{
                                 ?>
-                                <a OnClick = changeGraph("<?=$val['StudRollNum']?>")><?=$val['name']?></a>
+                                <a OnClick = changeGraph("<?=$val['StudRollNum']?>")><?=$val['name']?></a><br>
                                 <?php
 								//echo "<a Onclick='changeGraph($val[StudRollNum])'>".$val['name']."</a>"."<br>"."<br>";
 							}
